@@ -3,8 +3,8 @@ package com.github.displayarraytorv
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  *  Created by Kei Lazu (Kennix Lazuardi) on 10/16/2018
@@ -18,11 +18,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val list = findViewById<RecyclerView>(R.id.club_list)
         initData()
 
-        list.layoutManager = LinearLayoutManager(this)
-        list.adapter = RecyclerViewAdapter(this, items) {
+        club_list.layoutManager = LinearLayoutManager(this)
+        club_list.adapter = RecyclerViewAdapter(this, items) {
             Toast.makeText(applicationContext, it.name, Toast.LENGTH_SHORT).show() // i'll shorten this to make sure the codes is concise
         }
     }
